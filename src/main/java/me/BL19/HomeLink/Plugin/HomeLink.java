@@ -33,8 +33,20 @@ public class HomeLink {
 		HL.addDeviceToHAP(dev, type);
 	}
 	
+	public void addDeviceToHAP(HomekitAccessory dev, HAPDeviceType type, boolean init) {
+		HL.addDeviceToHAP(dev, type, init);
+	}
+	
 	public String getHAPUri() {
 		return HL.uri();
+	}
+	
+	public int getNextID() {
+		return HL.getHighestID() + 1;
+	}
+	
+	public PluginLoader getPluginLoader() {
+		return PluginLoader.instance;
 	}
 	
 }

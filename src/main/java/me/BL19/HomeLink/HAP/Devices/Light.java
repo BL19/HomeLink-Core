@@ -5,11 +5,13 @@ import java.util.concurrent.CompletableFuture;
 import com.beowulfe.hap.HomekitCharacteristicChangeCallback;
 import com.beowulfe.hap.accessories.Lightbulb;
 
+import me.BL19.HomeLink.HAP.StateChange;
+
 public class Light implements Lightbulb {
 
 	
 	private boolean powerState = false;
-	private HomekitCharacteristicChangeCallback subscribeCallback = null;
+	private HomekitCharacteristicChangeCallback subscribeCallback;
 	
 	public int id;
 	public String name;
@@ -20,6 +22,7 @@ public class Light implements Lightbulb {
 	public Light(String name, int id) {
 		this.name = name;
 		this.id = id;
+		subscribeCallback = new StateChange(id);
 	}
 
 	public CompletableFuture<Boolean> getLightbulbPowerState() {
@@ -32,10 +35,9 @@ public class Light implements Lightbulb {
 		if (subscribeCallback != null) {
 			subscribeCallback.changed();
 		}
-		System.out.println(name + " is now "+(powerState ? "on" : "off"));
 		return CompletableFuture.completedFuture(null);
 	}
-
+	
 	public void subscribeLightbulbPowerState(
 			HomekitCharacteristicChangeCallback callback) {
 		this.subscribeCallback = callback;

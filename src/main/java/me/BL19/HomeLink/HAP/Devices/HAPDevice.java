@@ -14,9 +14,7 @@ public class HAPDevice {
 		model = acc.getModel();
 		manufacturer = acc.getManufacturer();
 		deviceType = type;
-		
-		if(type == HAPDeviceType.LIGHT)
-			aL = (Light) acc;
+		device = acc;
 	}
 	public int id;
 	public String name;
@@ -24,7 +22,7 @@ public class HAPDevice {
 	public String model;
 	public String manufacturer;
 	public HAPDeviceType deviceType;
-	public Light aL;
+	public HomekitAccessory device;
 	
 
 	

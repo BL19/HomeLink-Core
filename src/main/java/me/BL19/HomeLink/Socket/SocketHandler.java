@@ -11,6 +11,7 @@ import com.google.gson.Gson;
 import me.BL19.HomeLink.HL;
 import me.BL19.HomeLink.API.ParsedElements.Devices;
 import me.BL19.HomeLink.HAP.Devices.HAPDevice;
+import me.BL19.HomeLink.HAP.Devices.Light;
 
 public class SocketHandler implements Runnable {
 
@@ -59,7 +60,7 @@ public class SocketHandler implements Runnable {
 									if (d == null) {
 										out.println("[HAP-NOT-FOUND]");
 									} else {
-										out.println(d.aL.getLightbulbPowerState().join());
+										out.println(((Light)d.device).getLightbulbPowerState().join());
 									}
 								}
 							} 
@@ -77,7 +78,7 @@ public class SocketHandler implements Runnable {
 									}
 									for (int i = 0; i < devs.length; i++) {
 										if (devs[i].id == deviceID) {
-											devs[i].aL.setLightbulbPowerState((args[5].equals("true")));
+											((Light)devs[i].device).setLightbulbPowerState((args[5].equals("true")));
 											out.println("true");
 											break;
 										}

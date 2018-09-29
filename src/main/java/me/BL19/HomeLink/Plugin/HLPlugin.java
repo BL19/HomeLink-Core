@@ -1,14 +1,15 @@
 package me.BL19.HomeLink.Plugin;
 
+import me.BL19.HomeLink.HAP.Devices.HAPDevice;
+
 public class HLPlugin {
 
-	private HomeLink homeLink;
+	public HomeLink homeLink;
 	public String pluginName;
 	public String neededPlugins;
 	
-	public HLPlugin(HomeLink hl) {
-		homeLink = hl;
-		onEnable();
+	public HLPlugin() {
+
 	}
 	
 	public void onEnable() {
@@ -20,6 +21,14 @@ public class HLPlugin {
 	}
 	
 	public void trigger(TriggerElement te, String data) {
+		
+	}
+
+	protected void init(HomeLink homeLink2) {
+		this.homeLink = homeLink2;
+	}
+	
+	public void deviceStateChange(HAPDevice d) {
 		
 	}
 	
