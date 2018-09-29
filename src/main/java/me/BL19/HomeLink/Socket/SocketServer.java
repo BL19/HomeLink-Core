@@ -3,6 +3,8 @@ package me.BL19.HomeLink.Socket;
 import java.io.IOException;
 import java.net.ServerSocket;
 
+import me.BL19.API.Logging.Logger;
+
 public class SocketServer {
 
 	public ServerSocket s;
@@ -13,7 +15,7 @@ public class SocketServer {
 			Thread t = new Thread(new SocketAcceptor(s));
 			t.start();
 			
-			System.out.println("API-Server is running on port " + port);
+			new Logger(SocketServer.class).info("API-Server is running on port " + port);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
