@@ -6,7 +6,7 @@ HomeLink is a application for linking API:s in your home.
  - Socket API
 
 ## Contribute
-Please contribute to this project if the function is not totaly necessary please create a plugin for it. (No plugin is supported at this point)
+Please contribute to this project. If the function is not totaly necessary or an integration to a system (ex. Hue, Telldus) please create a plugin for it.
 
 ## Contact
  - Trello: https://trello.com/b/QsdmIUh7/homelink
